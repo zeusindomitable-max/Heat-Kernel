@@ -145,4 +145,6 @@ For future extensions:
 ---
 
 **Author:** Hari Hardiyan 
-**License:** MIT
+**License:** Dual License (Academic + Commercial) © 2025 Hari Hardiyan.
+See LICENSE
+ for full terms

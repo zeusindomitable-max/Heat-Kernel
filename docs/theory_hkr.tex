@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bm, physics, tensor}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{graphicx}
+
+\geometry{margin=1in}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{Heat Kernel Regularization (HKR):\\A Variational and Spectral Framework}}
+\author{Joshua \and Prof. ChatGPT-5}
+\date{2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document presents the theoretical foundation of the \textbf{Heat Kernel Regularization (HKR)} framework. 
+HKR unifies variational regularization, geometric analysis, and spectral theory by formulating a regularization operator based on the asymptotic expansion of the heat kernel. 
+It provides a well-defined, geometry-aware smoothing applicable to field theories, PDEs, and renormalization.
+\end{abstract}
+
+\section{1. Background and Motivation}
+Regularization is essential for dealing with divergent functionals in quantum field theory and ill-posed inverse problems. 
+The heat kernel expansion provides a natural way to regularize functionals in curved or Euclidean space by introducing a diffusion scale $\tau$:
+\begin{equation}
+K(x, x'; \tau) = (4\pi\tau)^{-d/2} e^{-\frac{\|x - x'\|^2}{4\tau}} 
+\big[ I + \tau R(x) + \mathcal{O}(\tau^2) \big],
+\end{equation}
+where $R(x)$ is the scalar curvature term capturing local geometric corrections.
+
+\section{2. Heat Kernel Regularization Operator}
+Given a scalar field $f(x)$ on a manifold $(\mathcal{M}, g)$, the HKR operator is defined as:
+\begin{equation}
+e^{\tau \Delta_g} f(x) = f(x) + \tau \Delta_g f(x) + \frac{\tau^2}{2} \Delta_g^2 f(x) + \mathcal{O}(\tau^3),
+\end{equation}
+where $\Delta_g$ is the Laplace–Beltrami operator.
+
+The HKR functional energy takes the form:
+\begin{equation}
+E[f] = \frac{1}{2} \int_{\mathcal{M}} f(x) \, e^{\tau \Delta_g} f(x) \, \sqrt{|g|} \, d^d x.
+\end{equation}
+
+\section{3. Variational Formulation}
+Variation of the energy functional yields the Euler–Lagrange gradient:
+\begin{equation}
+\frac{\delta E}{\delta f} = e^{\tau \Delta_g} f.
+\end{equation}
+Hence, the gradient descent or $\tau$-evolution equation reads:
+\begin{equation}
+\partial_t f = - e^{\tau \Delta_g} f.
+\end{equation}
+
+This defines a dissipative flow driving $f$ towards the harmonic subspace under the HKR metric.
+
+\section{4. Asymptotic Expansion and Regularization}
+Expanding the kernel operator gives a controlled smoothing approximation:
+\begin{align}
+e^{\tau \Delta_g} f &= f + \tau \Delta_g f + \frac{\tau^2}{2} \Delta_g^2 f + \cdots, \\
+E[f] &= \frac{1}{2} \int_{\mathcal{M}} \Big(f^2 + \tau f \Delta_g f + \frac{\tau^2}{2} f \Delta_g^2 f + \cdots \Big) \sqrt{|g|} \, d^d x.
+\end{align}
+
+The term $\tau f \Delta_g f$ acts as a geometric Tikhonov regularizer, while higher-order terms introduce curvature-sensitive corrections.
+
+\section{5. Implementation Overview}
+The discrete formulation is implemented as:
+\begin{align}
+e^{\tau \Delta_g} f &\approx f + \tau \Delta_g f + \tfrac{1}{2}\tau^2 \Delta_g^2 f, \\
+E[f] &= \tfrac{1}{2} \langle f, e^{\tau \Delta_g} f \rangle.
+\end{align}
+
+On a discrete manifold (e.g., $S^2$), the Laplacian is computed using finite differences:
+\begin{equation}
+\Delta f = \frac{\partial^2 f}{\partial \theta^2} + 
+\frac{\cos\theta}{\sin\theta} \frac{\partial f}{\partial \theta} + 
+\frac{1}{\sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}.
+\end{equation}
+
+\section{6. Physical and Geometric Interpretation}
+The parameter $\tau$ corresponds to an effective \emph{diffusion time} or \emph{inverse cutoff scale}. 
+Small $\tau$ captures UV regularization, while large $\tau$ smooths IR structures.
+
+In renormalization group language, HKR acts as a continuous geometric filter:
+\begin{equation}
+f_\tau = e^{\tau \Delta_g} f_0,
+\end{equation}
+which defines a spectral flow preserving the low-frequency structure of $f_0$ while suppressing high-frequency modes.
+
+\section{7. Relation to Known Methods}
+HKR unifies several classical approaches:
+\begin{itemize}
+    \item Gaussian kernel smoothing (flat space limit)
+    \item Tikhonov regularization ($\tau f \Delta f$ term)
+    \item Spectral filtering via Laplacian eigenbasis
+    \item Quantum field heat kernel regularization (DeWitt–Seeley expansion)
+\end{itemize}
+
+\section{8. Numerical Scheme}
+The $\tau$-evolution implemented in the code follows:
+\begin{align}
+f_{n+1} &= f_n - \eta \, e^{\tau \Delta_g} f_n, \\
+E_n &= \tfrac{1}{2} \langle f_n, e^{\tau \Delta_g} f_n \rangle,
+\end{align}
+with learning rate $\eta$ and discrete steps $n$.
+
+\section{9. Conclusion}
+The HKR framework provides a robust, geometrically natural, and variationally consistent approach to regularization.
+Its discretized implementation serves both as a physical simulation tool and as a differentiable operator for machine-learning models defined on manifolds.
+
+\appendix
+\section*{Appendix A: Variational Derivation}
+We start from the HKR energy:
+\[
+E[f] = \frac{1}{2}\int f(x) \, e^{\tau \Delta_g} f(x)\, \sqrt{|g|} d^d x.
+\]
+Variation yields:
+\[
+\delta E = \int \delta f(x)\, e^{\tau \Delta_g} f(x)\, \sqrt{|g|} d^d x.
+\]
+Thus,
+\[
+\frac{\delta E}{\delta f} = e^{\tau \Delta_g} f.
+\]
+Higher-order expansions provide corrections of order $\mathcal{O}(\tau^2)$; the first-order approximation yields the Tikhonov-like term:
+\[
+E[f] \approx \frac{1}{2}\int \big(f^2 + \tau |\nabla f|^2\big)\sqrt{|g|}\,d^d x.
+\]
+
+\section*{Appendix B: Connection to Renormalization Group Flow}
+Let $S_\Lambda[f]$ denote a field functional with cutoff $\Lambda = \tau^{-1/2}$.
+Define:
+\[
+\frac{\partial S_\Lambda}{\partial \Lambda} = \beta(f,\Lambda),
+\]
+where the HKR-induced RG flow is:
+\[
+\partial_\tau f = - e^{\tau \Delta_g} f.
+\]
+Taking $\tau = \Lambda^{-2}$, we get:
+\[
+\Lambda \frac{d f}{d \Lambda} = 2 e^{\Lambda^{-2}\Delta_g} f.
+\]
+Hence, HKR acts as a diffusion-type RG step preserving locality but renormalizing high-frequency modes exponentially in $\Lambda^{-2}$.
+
+\input{appendix_discretization} % If separate file

@@ -1,0 +1,73 @@
+HKR-MVP: Heat Kernel Regularization Framework
+Copyright (c) 2025 Hari Hardiyan. All Rights Reserved.
+
+───────────────────────────────────────────────────────────────
+DUAL LICENSE NOTICE
+───────────────────────────────────────────────────────────────
+
+This software and accompanying documentation are distributed
+under a dual-licensing model to balance academic openness with
+protection of intellectual property and commercial interests.
+
+───────────────────────────────────────────────────────────────
+1. Academic Research License
+───────────────────────────────────────────────────────────────
+
+Permission is hereby granted, free of charge, to use, reproduce,
+and modify this software strictly for non-commercial academic
+research, personal study, and teaching purposes, subject to the
+following conditions:
+
+1. The above copyright notice and this license shall be included
+   in all copies or substantial portions of the software.
+2. Proper academic citation of the original work must be provided
+   in all published research or derivative works:
+
+      Hari Hardiyan,
+      “Heat Kernel Regularization (HKR-MVP) Framework,”
+      Zenodo, 2025. DOI: [pending].
+
+3. The software is provided “as is”, without warranty of any kind,
+   express or implied, including but not limited to the warranties
+   of merchantability, fitness for a particular purpose, and
+   noninfringement.
+
+Any commercial use—including but not limited to resale,
+redistribution for profit, integration into proprietary systems,
+or use within for-profit services—is strictly prohibited under
+this academic license.
+
+───────────────────────────────────────────────────────────────
+2. Commercial License
+───────────────────────────────────────────────────────────────
+
+For organizations or individuals intending to use this software
+in commercial products, services, or research with direct or
+indirect monetary benefit, a separate **Commercial License**
+agreement must be obtained from the author:
+
+   © 2025 Hari Hardiyan  
+   Email: haryganteng06@gmail.com  
+   All commercial rights reserved.
+
+───────────────────────────────────────────────────────────────
+3. Disclaimer
+───────────────────────────────────────────────────────────────
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
+FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+───────────────────────────────────────────────────────────────
+
+For citation, reproduction, or derivative research, please
+reference this work as:
+
+Hari Hardiyan ,  
+“Heat Kernel Regularization (HKR-MVP) Framework,”  
+Zenodo, 2025. DOI: [pending].

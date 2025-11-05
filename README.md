@@ -46,6 +46,8 @@ hkr-mvp/
 │
 ├── README.md
 ├── setup.py
+├── docs/theory_hkr.tex
+├── LICENSE.txt
 └── requirements.txt
 ```
 

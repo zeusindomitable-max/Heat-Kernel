@@ -125,8 +125,12 @@ If you use HKR-MVP for research, please cite:
   year = {2025},
   url = {https://github.com/zeusindomitable-max/Heat-Kernel},
   version = {v1.0.0},
-  doi = {10.5281/zenodo.xxxxxxx}
-}
+
+If you use this repository in your research, please cite:
+
+> Hari Hardiyan. *Heat-Kernel Regularization: An Integrated Analytical–Numerical Approach (Final Revision, 05 November 2025).*  
+> Zenodo. [https://doi.org/10.5281/zenodo.17528375](https://doi.org/10.5281/zenodo.17528375)
+
 ```
 
 ---

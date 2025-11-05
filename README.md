@@ -1,3 +1,13 @@
+<p align="center">
+  <a href="https://doi.org/10.5281/zenodo.17528375">
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17528375.svg" alt="DOI">
+  </a>
+</p>
+
+# Heat-Kernel Regularization (HKR-MVP)
+**DOI:** [10.5281/zenodo.17528375](https://doi.org/10.5281/zenodo.17528375)
+
+
 # HKR-MVP: Heat Kernel Regularization Framework
 
 A minimal yet mathematically rigorous implementation of the **Heat Kernel Regularization (HKR)** framework for variational field analysis, spectral geometry, and physical regularization of PDE systems. This MVP is structured for clarity, reproducibility, and direct extension into differentiable optimization workflows (e.g., via PyTorch).
